@@ -91,7 +91,7 @@ fabric.Object.prototype.customiseCornerIcons({
       borderColor: '#0094dd',
       cornerSize: 15,
       cornerShape: 'rect',
-      cornerBackgroundColor: 'white',
+      cornerBackgroundColor: '#ffffffac',
   },
   tl: {
     icon:"/img/arrow-counterclockwise.svg"
