@@ -16,22 +16,83 @@
 <body class="m-3">
     <h1>軌道擺設模擬</h1>
     <div id="imgset">
-        <img src="/img/起點板.png" alt="" srcset="">
-        <img src="/img/1.png" alt="" srcset="" draggable>
-        <img src="/img/2.png" alt="" srcset=""draggable>
-        <img src="/img/3.png" alt="" srcset=""draggable>
-        <img src="/img/4.png" alt="" srcset=""draggable>
-        <img src="/img/5.png" alt="" srcset=""draggable>
-        <img src="/img/6.png" alt="" srcset=""draggable>
-        <img src="/img/7.png" alt="" srcset=""draggable>
-        <img src="/img/8.png" alt="" srcset=""draggable>
-        <img src="/img/9.png" alt="" srcset=""draggable>
-        <img src="/img/S.png" alt="" srcset=""draggable>
+
+
+
+        <div class="form-check form-check-inline">
+            <input checked value="img-0" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault0">
+            <label class="form-check-label" for="flexRadioDefault0">
+                <img id="img-0" src="/img/起點板.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-1" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                <img id="img-1" src="/img/1.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-2" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+                <img id="img-2" src="/img/2.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-3" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+            <label class="form-check-label" for="flexRadioDefault3">
+                <img id="img-3" src="/img/3.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-4" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+            <label class="form-check-label" for="flexRadioDefault4">
+                <img id="img-4" src="/img/4.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-5" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+            <label class="form-check-label" for="flexRadioDefault5">
+                <img id="img-5" src="/img/5.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-6" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+            <label class="form-check-label" for="flexRadioDefault6">
+                <img id="img-6" src="/img/6.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-7" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+            <label class="form-check-label" for="flexRadioDefault7">
+                <img id="img-7" src="/img/7.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline"  >
+            <input value="img-8" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+            <label class="form-check-label" for="flexRadioDefault8">
+                <img id="img-8" src="/img/8.png" alt="" srcset="">
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input value="img-9" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
+            <label class="form-check-label" for="flexRadioDefault9">
+                <img id="img-9" src="/img/9.png" alt="" srcset="">
+            </label>
+        </div>        
+        <div class="form-check form-check-inline">
+            <input value="img-S" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefaults">
+            <label class="form-check-label" for="flexRadioDefaults">
+                <img id="img-S" src="/img/S.png" alt="" srcset="">
+            </label>
+        </div>
+       
+        
     </div>
 
+    <button class="btn btn-primary" id="joinBtn">加入</button>
 
     <div class="mt-1">
-        <canvas id="main">你的瀏覽器不支援此功能</canvas>
+        <canvas id="main"></canvas>
 
     </div>
 
@@ -47,10 +108,12 @@
     <!--Jquery-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 
-    <!--Fabric-->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js'
-        integrity='sha512-CeIsOAsgJnmevfCi2C7Zsyy6bQKi43utIjdA87Q0ZY84oDqnI0uwfM9+bKiIkI75lUeI00WG/+uJzOmuHlesMA=='
-        crossorigin='anonymous'></script>
+    <!--Fabric + ext.-->
+    <script
+        src='/js/fabric.js'></script>
+
+    <script
+        src="/js/customiseControls.js"></script>
 
     <script src="/js/main.js"></script>
 </body>
