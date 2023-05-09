@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>軌道擺設模擬</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="m-3">
+    <h1>軌道擺設模擬</h1>
+    <div id="imgset">
+        <img src="/img/起點板.png" alt="" srcset="">
+        <img src="/img/1.png" alt="" srcset="" draggable>
+        <img src="/img/2.png" alt="" srcset=""draggable>
+        <img src="/img/3.png" alt="" srcset=""draggable>
+        <img src="/img/4.png" alt="" srcset=""draggable>
+        <img src="/img/5.png" alt="" srcset=""draggable>
+        <img src="/img/6.png" alt="" srcset=""draggable>
+        <img src="/img/7.png" alt="" srcset=""draggable>
+        <img src="/img/8.png" alt="" srcset=""draggable>
+        <img src="/img/9.png" alt="" srcset=""draggable>
+        <img src="/img/S.png" alt="" srcset=""draggable>
+    </div>
+
+
+    <div class="mt-1">
+        <canvas id="main">你的瀏覽器不支援此功能</canvas>
+
+    </div>
+
+
+    <div hidden="hidden"><img src="/img/底圖.png" alt="" srcset="" id="background"></div>
+    <!--BS JS-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <!--Jquery-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+
+    <!--Fabric-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js'
+        integrity='sha512-CeIsOAsgJnmevfCi2C7Zsyy6bQKi43utIjdA87Q0ZY84oDqnI0uwfM9+bKiIkI75lUeI00WG/+uJzOmuHlesMA=='
+        crossorigin='anonymous'></script>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
