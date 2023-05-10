@@ -10,7 +10,7 @@ canvas.setBackgroundImage("/img/底圖.png", function () {
 function findSelection(name) {
   try {
     return document.querySelector(`[name="${name}"]:checked`).value
-  } catch(e){
+  } catch (e) {
     return null
   }
 }
@@ -18,14 +18,17 @@ function findSelection(name) {
 $("#joinBtn").on("click", function () {
 
   console.log(findSelection("flexRadioDefault"))
-  var imgPath =document.querySelector("#"+findSelection("flexRadioDefault"))
-  var img = 
-  new fabric.Image(imgPath, {
-    name: ``,
-    top: 50,
-    left: 50,
+  var imgPath = document.querySelector("#" + findSelection("flexRadioDefault"))
+  var img =
+    new fabric.Image(imgPath, {
+      name: ``,
+      top: 50,
+      left: 50,
+      padding: 10,
+      borderDashArray: [5, 5],
+      cornerStyle: 'circle'
 
-  })
+    })
   canvas.add(img)
   canvas.renderAll()
 })
@@ -39,87 +42,124 @@ fabric.Canvas.prototype.customiseControls({
     action: {
       'rotateByDegrees': -90
     },
-    cursor:"pointer"
-   
+    cursor: "pointer"
+
   },
   tr: {
     action: 'rotate',
     action: {
       'rotateByDegrees': 90
     },
-    
-    cursor:"pointer"
-   
+
+    cursor: "pointer"
+
   },
   bl: {
     action: 'remove',
-  
-    cursor:"pointer"
+
+    cursor: "pointer"
 
   },
   br: {
-    action: 'moveUp',
+    cursor: "pointer",
+    action: function (e, target) {
 
+      canvas.getActiveObject().clone(function (cloned) {
+        _clipboard = cloned;
+    });
+
+
+      _clipboard.clone(function (clonedObj) {
+        canvas.discardActiveObject();
+
+        clonedObj.set({
+            left: clonedObj.left + 10,
+            top: clonedObj.top + 10,
+
+            evented: true,
+        });
+        if (clonedObj.type === 'activeSelection') {
+            // active selection needs a reference to the canvas.
+            clonedObj.canvas = canvas;
+            clonedObj.forEachObject(function (obj) {
+                canvas.add(obj);
+            });
+            // this should solve the unselectability
+            clonedObj.setCoords();
+        } else {
+            canvas.add(clonedObj);
+        }
+        _clipboard.top += 10;
+        _clipboard.left += 10;
+        canvas.setActiveObject(clonedObj);
+     // canvas.requestRenderAll();
+    })
+    },
+    
   },
   mb: {
-    action: 'moveDown',
+      action: 'moveDown',
+
+    },
+    mt: {
+      action: {
+        'rotateByDegrees': 90
+      }
+    },
+    mr: {
+      action: function (e, target) {
+        target.set({
+          left: 200
+        });
+        canvas.renderAll();
+      }
+    },
+    // only is hasRotatingPoint is not set to false
+    mtr: {
+      action: 'rotate',
+
+    },
+  }, function() {
+    canvas.renderAll();
+  });
+fabric.Object.prototype.customiseCornerIcons({
+  settings: {
+    borderColor: '#0094dd',
+    cornerSize: 15,
+    cornerShape: 'rect',
+    cornerBackgroundColor: '#ffffffac',
+  },
+  br:{
+    icon:"/img/clipboard.svg",
+    
+  },
+  tl: {
+    icon: "/img/arrow-counterclockwise.svg"
+  },
+  tr: {
+    icon: "/img/arrow-clockwise.svg"
+  },
+  ml: {
 
   },
-  mt: {
-    action: {
-      'rotateByDegrees': 90
-    }
-  },
   mr: {
-    action: function (e, target) {
-      target.set({
-        left: 200
-      });
-      canvas.renderAll();
-    }
+
+  },
+  bl: {
+    icon: "/img/trash3.svg"
+
   },
   // only is hasRotatingPoint is not set to false
   mtr: {
-    action: 'rotate',
 
   },
 }, function () {
   canvas.renderAll();
 });
-fabric.Object.prototype.customiseCornerIcons({
-  settings: {
-      borderColor: '#0094dd',
-      cornerSize: 15,
-      cornerShape: 'rect',
-      cornerBackgroundColor: '#ffffffac',
-  },
-  tl: {
-    icon:"/img/arrow-counterclockwise.svg"
-  },
-  tr: {
-    icon:"/img/arrow-clockwise.svg"
-  },
-  ml: {
-      
-  },
-  mr: {
-     
-  },
-  bl:{
-    icon:"/img/trash3.svg"
-
-  },
-  // only is hasRotatingPoint is not set to false
-  mtr: {
-      
-  },
-}, function() {
-  canvas.renderAll();
-});
 
 fabric.Object.prototype.setControlsVisibility({
   bl: true, // 左下
-  br: false, // 右下
+  br: true, // 右下
   mb: false, // 下中
   ml: false, // 中左
   mr: false, // 中右
