@@ -15,15 +15,17 @@ function findSelection(name) {
   }
 }
 
+var left=5
 $("#joinBtn").on("click", function () {
+
 
   console.log(findSelection("flexRadioDefault"))
   var imgPath = document.querySelector("#" + findSelection("flexRadioDefault"))
   var img =
     new fabric.Image(imgPath, {
       name: ``,
-      top: 50,
-      left: 50,
+      top: 265,
+      left: 30,
       padding: 10,
       borderDashArray: [5, 5],
       cornerStyle: 'circle'
