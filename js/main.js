@@ -170,3 +170,86 @@ fabric.Object.prototype.setControlsVisibility({
   tr: true, // 上右
   mtr: false // 旋轉控制鍵
 })
+
+canvas.on("object:modified",function(e) { console.log(e)})
+
+
+function addImg(imgs,points){
+  var left = 0
+  var imgPath = document.querySelector("#img-0")
+      var img =
+        new fabric.Image(imgPath, {
+          name: ``,
+          top: 101,
+          left: 37,
+          padding: 10,
+          borderDashArray: [5, 5],
+          cornerStyle: 'circle',
+          angle:90
+    
+        })
+      canvas.add(img)
+
+  for(i=0;i<imgs.length;i++){
+    left += 30
+    for(j=0;j<7;j++){
+      var imgPath = document.querySelector("#img-" + imgs[i])
+      var img =
+        new fabric.Image(imgPath, {
+          name: ``,
+          top: 265,
+          left: 30 + left,
+          padding: 10,
+          borderDashArray: [5, 5],
+          cornerStyle: 'circle'
+    
+        })
+      canvas.add(img)
+      canvas.renderAll()
+    }
+  }
+  left += 30
+  for(j=0;j<7;j++){
+    var imgPath = document.querySelector("#img-" +"S")
+    var img =
+      new fabric.Image(imgPath, {
+        name: ``,
+        top: 265,
+        left: 30 + left,
+        padding: 10,
+        borderDashArray: [5, 5],
+        cornerStyle: 'circle'
+  
+      })
+    canvas.add(img)
+    canvas.renderAll()
+  }
+
+  //設定加分點:9G.18E.27F
+  var imgPath = document.querySelector("#img-" +"A")
+    canvas.add(new fabric.Image(imgPath, {
+    name: ``,
+    top:122,
+    left: 220,
+    padding: 10,
+    borderDashArray: [5, 5],
+    cornerStyle: 'circle'
+  }))
+  canvas.add(new fabric.Image(imgPath, {
+    name: ``,
+    top:79,
+    left: 426,
+    padding: 10,
+    borderDashArray: [5, 5],
+    cornerStyle: 'circle'
+  }))
+  canvas.add(new fabric.Image(imgPath, {
+    name: ``,
+    top:101,
+    left: 633,
+    padding: 10,
+    borderDashArray: [5, 5],
+    cornerStyle: 'circle'
+  }))
+  canvas.renderAll()
+}
