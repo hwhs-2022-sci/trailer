@@ -175,59 +175,33 @@ canvas.on("object:modified",function(e) { console.log(e)})
 
 
 function addImg(imgs,points){
+
   //設定加分點:9G.18E.27F
-
   var imgPath = document.querySelector("#img-" +"A")
-
     canvas.add(new fabric.Image(imgPath, {
-
     name: ``,
-
     top:122,
-
     left: 220,
-
     padding: 10,
-
     borderDashArray: [5, 5],
-
     cornerStyle: 'circle'
-
   }))
-
   canvas.add(new fabric.Image(imgPath, {
-
     name: ``,
-
     top:79,
-
     left: 426,
-
     padding: 10,
-
     borderDashArray: [5, 5],
-
     cornerStyle: 'circle'
-
   }))
-
   canvas.add(new fabric.Image(imgPath, {
-
     name: ``,
-
     top:101,
-
     left: 633,
-
     padding: 10,
-
     borderDashArray: [5, 5],
-
     cornerStyle: 'circle'
-
   }))
-
-  canvas.renderAll()
   var left = 0
   var imgPath = document.querySelector("#img-0")
       var img =
@@ -279,4 +253,5 @@ function addImg(imgs,points){
   }
 
   
+  canvas.renderAll()
 }
